@@ -11,6 +11,7 @@ import { HeaderComponent } from './header/header.component';
 import { PointListComponent } from './point-list/point-list.component';
 import { PointDetailComponent } from './point-detail/point-detail.component';
 import { routing } from "./app.routing";
+import { PointService } from "./shared/point.service";
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { routing } from "./app.routing";
     HttpModule,
     routing
   ],
-  providers: [],
+  providers: [PointService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
