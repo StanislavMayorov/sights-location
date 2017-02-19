@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from "@angular/router";
 
 @Component({
   selector: 'app-point-detail',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./point-detail.component.sass']
 })
 export class PointDetailComponent implements OnInit {
+  pointerId: number;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.params.subscribe((params: Params) => {
+      this.pointerId = +params['id'];
+      //this.update();
+    });
   }
 
 }

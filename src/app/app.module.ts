@@ -10,6 +10,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { PointListComponent } from './point-list/point-list.component';
 import { PointDetailComponent } from './point-detail/point-detail.component';
+import { routing } from "./app.routing";
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { PointDetailComponent } from './point-detail/point-detail.component';
     NgbModule.forRoot(),
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    routing
   ],
   providers: [],
   bootstrap: [AppComponent]
