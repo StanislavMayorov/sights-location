@@ -20,29 +20,21 @@ export class PointListComponent implements OnInit {
     this.mapCenterLat = 59.879037;
     this.mapCenterLng = 59.87903;
     this.pointService.getPoints().subscribe((points: Array<Point>) => {
-      this.points = points;
-      for(let point of this.points){
+      for (let point of points) {
         point.isOpen = false;
       }
+      this.points = points;
     })
   }
 
-  closeInfo(event: any){
-    //debugger;
-    console.log(event);
-  }
-
-  clickMarker(point: any){
-    debugger;
+  clickMarker(point: any) {
     this.closeAllWindows();
     point.isOpen = true;
   }
 
-  closeAllWindows(){
-    debugger;
-    for(let point of this.points){
+  closeAllWindows() {
+    for (let point of this.points) {
       point.isOpen = false;
-      //point.isOpen = !point.isOpen;
     }
   }
 
