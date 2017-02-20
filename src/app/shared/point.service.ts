@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from "@angular/http";
+import { Http } from "@angular/http";
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map'
 import { Point } from "./point";
-//import { Response } from "@angular/http/src/static_response";
+import { Response } from "@angular/http/src/static_response";
 
 @Injectable()
 export class PointService {

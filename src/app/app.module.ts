@@ -12,6 +12,7 @@ import { PointListComponent } from './point-list/point-list.component';
 import { PointDetailComponent } from './point-detail/point-detail.component';
 import { routing } from "./app.routing";
 import { PointService } from "./shared/point.service";
+import { AgmCoreModule } from "../../node_modules/angular2-google-maps/core/core-module";
 
 @NgModule({
   declarations: [
@@ -23,6 +24,9 @@ import { PointService } from "./shared/point.service";
   ],
   imports: [
     NgbModule.forRoot(),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAGb1MTX-euG06undWOO9WrTujXSd9SJMI'
+    }),
     BrowserModule,
     FormsModule,
     HttpModule,

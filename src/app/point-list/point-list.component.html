@@ -1,3 +1,19 @@
-<p>
-  point-list works!
-</p>
+<app-header></app-header>
+<main>
+<sebm-google-map [latitude]="mapCenterLat" [longitude]="mapCenterLng" [zoom]="3">
+  <sebm-google-map-marker *ngFor="let point of points"
+                          [latitude]="point.location.lat"
+                          [longitude]="point.location.lng"
+                          [title]="point.title"
+                          (markerClick)="clickMarker(point)">
+    <sebm-google-map-info-window [isOpen]="point.isOpen"
+                                 (infoWindowClose)="closeInfo(point)"
+                                 [maxWidth]="200">
+      <h4>{{point.title}}</h4>
+      <hr>
+      <p>{{point.description}}</p>
+      <p><a [routerLink]="['/point', point.id]">See details</a></p>
+    </sebm-google-map-info-window>
+  </sebm-google-map-marker>
+</sebm-google-map>
+</main>

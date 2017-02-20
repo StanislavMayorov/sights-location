@@ -1,6 +1,7 @@
 export class Point {
   constructor(public id: number, public title: string,
-              public description: string, public location: Location) {
+              public description: string, public location: Location, public isOpen: boolean) {
+    this.isOpen = false;
 
   }
 }
