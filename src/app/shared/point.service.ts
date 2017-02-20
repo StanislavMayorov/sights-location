@@ -13,12 +13,12 @@ export class PointService {
 
   getPoints(): Observable<Array<Point>>{
     const url = 'http://api.dev.aispot.no/lighthouse/spot/nearby?lat=59.879037&lng=59.87903';
-    return this.http.get(url).map((response:Response) => response.json())
+    return this.http.get(url).map((response:Response) => response.json());
   }
 
   getPointDetails(id:number): Observable<PointDetail>{
     const url = `http://api.dev.aispot.no/lighthouse/content/${id}`;
-    return this.http.get(url).map((response:Response) => response.json())
+    return this.http.get(url).map((response:Response) => response.json());
 
   }
 

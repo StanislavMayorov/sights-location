@@ -3,6 +3,7 @@ import { ActivatedRoute, Params } from "@angular/router";
 import { PointService } from "../shared/point.service";
 import { PointDetail } from "../shared/point-detail";
 import { Title } from "../../../node_modules/@angular/platform-browser/src/browser/title";
+import { TitleService } from "../shared/title.service";
 
 @Component({
   selector: 'app-point-detail',
@@ -12,10 +13,9 @@ import { Title } from "../../../node_modules/@angular/platform-browser/src/brows
 export class PointDetailComponent implements OnInit {
   pointId: number;
   pointDetail: PointDetail;
-  defaultTitle: string = 'Sights location | ';
 
   constructor(private route: ActivatedRoute, private pointService: PointService,
-              private titleService: Title) { }
+              private titleService: Title, private generateTitleService: TitleService) { }
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
@@ -26,7 +26,7 @@ export class PointDetailComponent implements OnInit {
 
   updateDetail(){
     this.pointService.getPointDetails(this.pointId).subscribe((point: PointDetail) =>{
-      this.titleService.setTitle(this.defaultTitle + point.title);
+      this.titleService.setTitle(this.generateTitleService.getTitle(point.title));
       this.pointDetail = point;
     })
   }
