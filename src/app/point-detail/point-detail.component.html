@@ -4,7 +4,7 @@
     <article *ngIf="pointDetail">
       <h1>{{pointDetail.headerTitle}} <span [style.background-color]="pointDetail.color" class="badge badge-default">{{pointDetail.type}}</span></h1>
       <div class="row">
-        <div class="col-xl-8 col-lg-7 col-xs-12">
+        <div class="buttom-buffer col-xl-8 col-lg-7 col-xs-12">
           <p>{{pointDetail.description}}</p>
           <ng-container *ngFor="let button of pointDetail.buttons">
             <a
