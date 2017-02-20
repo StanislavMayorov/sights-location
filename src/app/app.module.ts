@@ -13,6 +13,7 @@ import { PointDetailComponent } from './point-detail/point-detail.component';
 import { routing } from "./app.routing";
 import { PointService } from "./shared/point.service";
 import { AgmCoreModule } from "../../node_modules/angular2-google-maps/core/core-module";
+import { Title } from "../../node_modules/@angular/platform-browser/src/browser/title";
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { AgmCoreModule } from "../../node_modules/angular2-google-maps/core/core
     HttpModule,
     routing
   ],
-  providers: [PointService],
+  providers: [PointService, Title],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

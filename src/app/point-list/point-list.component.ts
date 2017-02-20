@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PointService } from "../shared/point.service";
 import { Point } from "../shared/point";
 import { _createConditionalRootRenderer } from "../../../node_modules/@angular/platform-browser/src/dom/debug/ng_probe";
+import { Title } from "../../../node_modules/@angular/platform-browser/src/browser/title";
 
 @Component({
   selector: 'app-point-list',
@@ -12,11 +13,13 @@ export class PointListComponent implements OnInit {
   points: Array<Point>;
   mapCenterLat: number;
   mapCenterLng: number;
+  defaultTitle: string = 'Sights location';
 
-  constructor(private pointService: PointService) {
+  constructor(private pointService: PointService, private titleService: Title) {
   }
 
   ngOnInit() {
+    this.titleService.setTitle(this.defaultTitle);
     this.mapCenterLat = 59.879037;
     this.mapCenterLng = 59.87903;
     this.pointService.getPoints().subscribe((points: Array<Point>) => {
