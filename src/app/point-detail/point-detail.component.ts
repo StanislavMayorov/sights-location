@@ -4,6 +4,7 @@ import { PointService } from "../shared/point.service";
 import { PointDetail } from "../shared/point-detail";
 import { Title } from "../../../node_modules/@angular/platform-browser/src/browser/title";
 import { TitleService } from "../shared/title.service";
+import { Router } from "../../../node_modules/@angular/router/src/router";
 
 @Component({
   selector: 'app-point-detail',
@@ -14,8 +15,10 @@ export class PointDetailComponent implements OnInit {
   pointId: number;
   pointDetail: PointDetail;
 
-  constructor(private route: ActivatedRoute, private pointService: PointService,
-              private titleService: Title, private generateTitleService: TitleService) { }
+  constructor(private route: ActivatedRoute, private router: Router,
+              private pointService: PointService, private titleService: Title,
+              private generateTitleService: TitleService) {
+  }
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
@@ -24,11 +27,13 @@ export class PointDetailComponent implements OnInit {
     });
   }
 
-  updateDetail(){
-    this.pointService.getPointDetails(this.pointId).subscribe((point: PointDetail) =>{
+  updateDetail() {
+    this.pointService.getPointDetails(this.pointId).subscribe((point: PointDetail) => {
       this.titleService.setTitle(this.generateTitleService.getTitle(point.title));
       this.pointDetail = point;
-    })
+    }, () => {
+      this.router.navigate(['/not-found']);
+    });
   }
 
 }
