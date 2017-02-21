@@ -15,6 +15,7 @@ import { PointService } from "./shared/point.service";
 import { AgmCoreModule } from "../../node_modules/angular2-google-maps/core/core-module";
 import { Title } from "../../node_modules/@angular/platform-browser/src/browser/title";
 import { TitleService } from "./shared/title.service";
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { TitleService } from "./shared/title.service";
     FooterComponent,
     HeaderComponent,
     PointListComponent,
-    PointDetailComponent
+    PointDetailComponent,
+    NotFoundComponent
   ],
   imports: [
     NgbModule.forRoot(),
