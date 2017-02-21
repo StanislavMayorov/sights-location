@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+$font-stack:    Helvetica, sans-serif
+$footer-height: 100px
+
+*
+  font-family: $font-stack
+
+body
+  overflow-y: scroll
+
+html, body
+  height: 100%
+  margin: 0
+
+.wrapper
+  min-height: 100%
+  margin-bottom: -$footer-height
+
+.footer, .push
+  height: $footer-height
+  hr
+    margin-top: 0
+
+.sebm-google-map-container
+  height: calc(100vh - 54px)
